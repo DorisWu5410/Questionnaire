@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="questionnaireApi:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>questionnaireApi</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="QuestionnaireApi-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="questionnaireApi:war exploded" />
+    </root>
+  </artifact>
+</component>
