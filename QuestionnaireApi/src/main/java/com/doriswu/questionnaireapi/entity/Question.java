@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class Question {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String type;
     private String content;
@@ -20,8 +21,7 @@ public class Question {
 //    private Set<User> userSet;
 
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Answer> answerlist;
+
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Option> optionList;
@@ -50,13 +50,6 @@ public class Question {
         this.content = content;
     }
 
-    public List<Answer> getAnswerlist() {
-        return answerlist;
-    }
-
-    public void setAnswerlist(List<Answer> answerlist) {
-        this.answerlist = answerlist;
-    }
 
     public List<Option> getOptionList() {
         return optionList;

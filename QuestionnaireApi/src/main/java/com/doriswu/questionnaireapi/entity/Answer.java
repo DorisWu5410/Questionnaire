@@ -7,19 +7,21 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = "answers")
 public class Answer {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private int questionId;
 
-    private String username;
 
     private String content;
 
+
     @ManyToOne
     @JsonIgnore
-    private Question question;
+    private User user;
 
 
     @ManyToMany
@@ -47,14 +49,6 @@ public class Answer {
         this.questionId = questionId;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getContent() {
         return content;
     }
@@ -63,13 +57,6 @@ public class Answer {
         this.content = content;
     }
 
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
 
     public List<Option> getOptionList() {
         return optionList;

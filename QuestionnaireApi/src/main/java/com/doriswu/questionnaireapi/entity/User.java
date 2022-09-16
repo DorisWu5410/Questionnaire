@@ -6,24 +6,28 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     private String username;
     private String password;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "user_answered_q",
-//            joinColumns = @JoinColumn(name = "username"),
-//            inverseJoinColumns = @JoinColumn(name = "question_id")
-//    )
-//    private Set<Question> answeredQuestion;
+    private boolean enable;
+
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Answer> answerList;
 
 
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
 //    public Set<Question> getAnsweredQuestion() {
 //        return answeredQuestion;
 //    }
@@ -31,6 +35,14 @@ public class User {
 //    public void setAnsweredQuestion(Set<Question> answeredQuestion) {
 //        this.answeredQuestion = answeredQuestion;
 //    }
+
+    public List<Answer> getAnswerList() {
+        return answerList;
+    }
+
+    public void setAnswerList(List<Answer> answerList) {
+        this.answerList = answerList;
+    }
 
     public String getUsername() {
         return username;

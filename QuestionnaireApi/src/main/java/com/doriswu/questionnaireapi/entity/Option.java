@@ -8,19 +8,23 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "questions")
+@Table(name = "options")
 public class Option {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int questionId;
+
     private String content;
 
     @ManyToOne
     @JsonIgnore
     private Question question;
 
-    @ManyToMany(mappedBy = "optionList")
+    @ManyToMany(mappedBy = "optionList", fetch = FetchType.EAGER)
     private List<Answer> answerList;
+
+    private boolean correct;
+
 
     public int getId() {
         return id;
@@ -30,13 +34,14 @@ public class Option {
         this.id = id;
     }
 
-    public int getQuestionId() {
-        return questionId;
+    public boolean isCorrect() {
+        return correct;
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
     }
+
 
     public String getContent() {
         return content;

@@ -24,7 +24,7 @@ public class ApplicationConfig {
 
     @Bean(name = "dataSource")
     public DataSource dataSource() {
-        String RDS_ENDPOINT = "questionnairedb.cmd26dx8ir9u.us-west-1.rds.amazonaws.com";
+        String RDS_ENDPOINT = "database-3.cmd26dx8ir9u.us-west-1.rds.amazonaws.com";
         String USERNAME = "admin";
         String PASSWORD = "questionnaire";
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
