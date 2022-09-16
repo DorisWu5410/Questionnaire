@@ -24,12 +24,12 @@ public class ApplicationConfig {
 
     @Bean(name = "dataSource")
     public DataSource dataSource() {
-        String RDS_ENDPOINT = "database-3.cmd26dx8ir9u.us-west-1.rds.amazonaws.com";
+        String RDS_ENDPOINT = "database-2.cmd26dx8ir9u.us-west-1.rds.amazonaws.com";
         String USERNAME = "admin";
         String PASSWORD = "questionnaire";
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://" + RDS_ENDPOINT + ":3306/questionnaireDB?createDatabaseIfNotExist=true&serverTimezone=UTC");
+        dataSource.setUrl("jdbc:mysql://" + RDS_ENDPOINT + ":3306/questionnairedb?createDatabaseIfNotExist=true&serverTimezone=UTC");
         dataSource.setUsername(USERNAME);
         dataSource.setPassword(PASSWORD);
 

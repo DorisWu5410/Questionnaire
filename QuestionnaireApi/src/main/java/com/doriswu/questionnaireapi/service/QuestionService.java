@@ -33,6 +33,7 @@ public class QuestionService {
             Option option = new Option();
             option.setContent(entry.getKey());
             option.setQuestion(question);
+            option.setAnswerList(new ArrayList<Answer>());
 
             String type = question.getType();
             if(question.getType().equals("trivia")){          // question has correct answer or not
@@ -70,7 +71,7 @@ public class QuestionService {
         for(int i: allQuestionId){
             boolean flag = true;
             for(Answer a: answerList){
-                if(i == a.getId()){
+                if(i == a.getQuestionId()){
                     flag = false;
                     break;
                 }

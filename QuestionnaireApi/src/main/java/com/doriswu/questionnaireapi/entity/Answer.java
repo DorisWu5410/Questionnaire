@@ -65,4 +65,12 @@ public class Answer {
     public void setOptionList(List<Option> optionList) {
         this.optionList = optionList;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

@@ -1,17 +1,16 @@
 package com.doriswu.questionnaireapi.controller;
 
+import com.doriswu.questionnaireapi.entity.Answer;
 import com.doriswu.questionnaireapi.entity.Option;
 import com.doriswu.questionnaireapi.entity.Question;
+import com.doriswu.questionnaireapi.service.AnswerService;
 import com.doriswu.questionnaireapi.service.OptionService;
 import com.doriswu.questionnaireapi.service.QuestionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
@@ -21,6 +20,9 @@ public class QuestionController {
 
     @Autowired
     private QuestionService questionService;
+
+    @Autowired
+    private AnswerService answerService;
 
 
 
@@ -55,6 +57,50 @@ public class QuestionController {
         }
         return null;
     }
+
+    // submit answer
+    @RequestMapping(value = "/question/{questionId}/submit-answer", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean answerQuestion(@PathVariable("questionId") int questionId, @RequestBody Param2 p, HttpServletResponse response) throws Exception{
+        Question question = questionService.getQuestion(questionId);
+        if(question == null){
+            response.setStatus(400);
+            response.getOutputStream()
+                    .println("invalid questionId");
+            return false;
+        }
+
+        Answer answer = p.getAnswer();
+        List<String> selected = p.getSelected();
+        answer.setQuestionId(questionId);
+
+        Answer newAnswer = answerService.submitAnswer(answer, selected);
+
+        // invalid options
+        if(newAnswer == null){
+            response.setStatus(400);
+            response.getOutputStream()
+                    .println("contains invalid options");
+            return false;
+        }
+
+        //check correct or not
+        else{
+            response.setStatus(200);
+            List<Option> optionList= newAnswer.getOptionList();
+            if(!question.getType().equals("trivia")){
+                return true;
+            }
+            for(Option option: optionList){
+                if(!option.isCorrect()){
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+
 }
 
 class Param{
@@ -77,3 +123,27 @@ class Param{
         this.optionContent = optionContent;
     }
 }
+
+class Param2{
+    private Answer answer;
+
+    private List<String> selected;
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
+    }
+
+    public List<String> getSelected() {
+        return selected;
+    }
+
+    public void setSelected(List<String> selected) {
+        this.selected = selected;
+    }
+}
+
+

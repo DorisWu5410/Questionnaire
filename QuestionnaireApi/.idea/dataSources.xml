@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://database-3.cmd26dx8ir9u.us-west-1.rds.amazonaws.com:3306/questionnaireDB</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="questionnairedb" uuid="646cbb83-7bce-4a33-ae92-3a65b8ed1a98">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://database-2.cmd26dx8ir9u.us-west-1.rds.amazonaws.com:3306/questionnairedb</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.ManyToMany;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -14,13 +15,15 @@ public class Option {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+
     private String content;
 
     @ManyToOne
     @JsonIgnore
     private Question question;
 
-    @ManyToMany(mappedBy = "optionList", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "optionList")
+    @JsonIgnore
     private List<Answer> answerList;
 
     private boolean correct;
@@ -29,6 +32,7 @@ public class Option {
     public int getId() {
         return id;
     }
+
 
     public void setId(int id) {
         this.id = id;
