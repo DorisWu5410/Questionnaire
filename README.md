@@ -1,6 +1,6 @@
 # Questionnaire
 
-## This is a backend of the questionnare build in Spring framework.
+## This is a backend of the questionnare built in Spring framework.
 
 ## UML
 ![image](https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/UML.png)
