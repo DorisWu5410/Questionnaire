@@ -2,6 +2,8 @@
 
 ## This is a backend of the questionnare built in Spring framework.
 
+To start, add configuration (Tomcat) and connetct to database from AWS RDS by adding new data source. Infomation about the DB is provided in ApplicationConfig.java.  
+
 ## UML
 ![image](https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/UML.png)
 
