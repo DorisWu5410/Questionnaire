@@ -19,9 +19,9 @@
 
 ## Postman test link
 
-![image](https://www.getpostman.com/collections/80aaa2f96dbe5cb20af6)
+https://www.getpostman.com/collections/80aaa2f96dbe5cb20af6
 
-##Sample procedure
+## Sample procedure
 
 1. User sign up. (/register)
 ![image](https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/register.png)
