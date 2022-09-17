@@ -19,3 +19,29 @@
 
 ## Postman test link
 https://www.getpostman.com/collections/80aaa2f96dbe5cb20af6
+
+##Sample procedure
+
+1. User sign up. (/register)
+https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/register.png
+
+2. User login. (/login)
+https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/login.png
+
+3. Get question (/question)
+https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/getQuestion1.png
+
+4. Answer question (/question/1/submit-answer)
+https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/submitAnswer1.png
+
+https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/submitAnswer1_2.png
+
+5. Get question (/question)
+https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/getQuestion2.png
+
+6. Answer question (/question/4/submit-answer)
+https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/submitAnswer2.png
+
+7. Finished
+https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/allAnswered.png
+
