@@ -48,7 +48,7 @@ https://www.getpostman.com/collections/80aaa2f96dbe5cb20af6
 7. Finished
 ![image](https://github.com/DorisWu5410/Questionnaire/blob/main/postman_screenshot/allAnswered.png)
 
-## Reflections.
+## Reflections
 
 To make the application scalable enough to handle various type of questions, it is a good solution to create an Question abstract class and endend it by different types of questions like TriviaQuestion, MatrixQuestion, by adding different implementations of input, validation criterion etc.  
 
